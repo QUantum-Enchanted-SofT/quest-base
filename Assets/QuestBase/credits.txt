@@ -1,3 +1,8 @@
 QuestBase needs to import other packages below.
 
-CSVInitializer https://assetstore.unity.com/packages/tools/integration/csv-serialize-135763
+[Asset Store]
+* CSVInitializer https://assetstore.unity.com/packages/tools/integration/csv-serialize-135763
+
+[Package Manager]
+* TextMeshPro
+* Input System
