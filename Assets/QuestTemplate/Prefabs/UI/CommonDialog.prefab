@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2811269409578274325}
   - component: {fileID: 1342077530633115028}
   - component: {fileID: 8090497694810895794}
-  - component: {fileID: 9023123801887173052}
+  - component: {fileID: 6395980169058201537}
   m_Layer: 5
   m_Name: BodyText
   m_TagString: Untagged
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &9023123801887173052
+--- !u!114 &6395980169058201537
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2352545844870391863}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34f9b43013b9a014f89ae1b42cfc29d3, type: 3}
+  m_Script: {fileID: 11500000, guid: ea2bc5cc731b8c447affaf95ca292eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3760841766958336421
@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 1620125294639443701}
   - component: {fileID: 1952926123555176721}
   - component: {fileID: 1378000345569565907}
-  - component: {fileID: 3150333082301030739}
+  - component: {fileID: 6131474882257394688}
   m_Layer: 5
   m_Name: TitleText
   m_TagString: Untagged
@@ -287,7 +287,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &3150333082301030739
+--- !u!114 &6131474882257394688
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -296,7 +296,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3760841766958336421}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34f9b43013b9a014f89ae1b42cfc29d3, type: 3}
+  m_Script: {fileID: 11500000, guid: ea2bc5cc731b8c447affaf95ca292eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3850109098546823145
@@ -350,8 +350,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b18ac98b99fdaad459deff2ce04d0bea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  titleText: {fileID: 3150333082301030739}
-  bodyText: {fileID: 9023123801887173052}
+  titleText: {fileID: 6131474882257394688}
+  bodyText: {fileID: 6395980169058201537}
   okButton: {fileID: 3850109100011581476}
   noButton: {fileID: 3850109099500242370}
 --- !u!1 &3850109098607386145
@@ -502,8 +502,7 @@ MonoBehaviour:
   m_text: Cancel
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 7053048848672648177, guid: 5fb3c9dcb181d8d4698058ebb24bc9ed,
-    type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -903,8 +902,7 @@ MonoBehaviour:
 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 7053048848672648177, guid: 5fb3c9dcb181d8d4698058ebb24bc9ed,
-    type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
