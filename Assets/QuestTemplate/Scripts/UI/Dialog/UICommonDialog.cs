@@ -22,8 +22,8 @@ namespace SGG.UI
         public void Init(string titleText, string bodyText, Action onClickOk = null, Action onClickNo = null)
         {
             view = viewObj.GetComponent<UICommonDialogView>();
-            view.TitleText.SetText(titleText);
-            view.BodyText.SetText(bodyText);
+            view.TitleText.SetTextDirectly(titleText);
+            view.BodyText.SetTextDirectly(bodyText);
             view.OkButton.onClick.AddListener(() => onClickOk?.Invoke());
             view.NoButton.onClick.AddListener(() => onClickNo?.Invoke());
 

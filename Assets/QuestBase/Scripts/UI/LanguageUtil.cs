@@ -56,12 +56,61 @@ namespace QuestBase.UI
             hasInit = true;
         }
 
-        public static string GetText(LangTextLabel label, SystemLanguage language)
+        public static string GetText(LangTextLabel label, SystemLanguage language, params string[] textArguments)
         {
             if (!hasInit)
                 Init();
 
-            return langDict[language][label.ToString()];
+            var text = langDict[language][label.ToString()];
+            for (int i = 0; i < text.Length; i++)
+            {
+                if (textArguments.Length <= i)
+                {
+                }
+                var replaceText = "{" + i + "}";
+                if (text.Contains(replaceText))
+                {
+                    if (i < textArguments.Length)
+                    {
+                        text.Replace(replaceText, textArguments[i]);
+                    }
+                    else
+                    {
+                        Debug.LogError($"Text argument is not exist. {{{i}}}");
+                    }
+                }
+                else
+                {
+                    if (i < textArguments.Length)
+                    {
+                        Debug.LogError($"Text argument is not specified. {{{i}}}");
+                    }
+                    break;
+                }
+            }
+
+            return text;
+        }
+
+        public static LangTextLabel GetLangTextLabel(string label)
+        {
+            Enum.TryParse<LangTextLabel>(GetLangTextLabelStr(label), out var labelEnum);
+            return labelEnum;
+        }
+
+        public static string GetLangTextLabelStr(string label)
+        {
+            var labelSp = label.Split('.');
+            for (int i = 0; i < labelSp.Length; i++)
+            {
+                // 頭文字を大文字に
+                var chars = labelSp[i].ToCharArray();
+                var initial = char.ToUpper(chars[0]);
+                chars[0] = initial;
+                labelSp[i] = new string(chars);
+            }
+            var enumKey = string.Join("", labelSp);
+            return enumKey;
         }
     }
 }

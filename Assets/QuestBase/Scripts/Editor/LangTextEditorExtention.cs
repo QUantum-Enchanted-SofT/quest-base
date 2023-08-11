@@ -33,16 +33,7 @@ namespace QuestBase.UI
                 }
 
                 var label = line[0];
-                var labelSp = label.Split('.');
-                for (int i = 0; i < labelSp.Length; i++)
-                {
-                    // 頭文字を大文字に
-                    var chars = labelSp[i].ToCharArray();
-                    var initial = char.ToUpper(chars[0]);
-                    chars[0] = initial;
-                    labelSp[i] = new string(chars);
-                }
-                var enumKey = string.Join("", labelSp);
+                var enumKey = LanguageUtil.GetLangTextLabelStr(label);
                 resultStr += $"    {enumKey},\n";
 
                 lineCount++;
