@@ -1,4 +1,4 @@
-QuestBase needs to import other packages below.
+QuestBase requires third party packages below.
 
 [Asset Store]
 * CSVInitializer https://assetstore.unity.com/packages/tools/integration/csv-serialize-135763
@@ -6,3 +6,6 @@ QuestBase needs to import other packages below.
 [Package Manager]
 * TextMeshPro
 * Input System
+
+[github]
+* ImtStateMachine https://github.com/Sinoa/IceMilkTea/blob/develop/Packages/IceMilkTea/Runtime/Core/StateMachine.cs
