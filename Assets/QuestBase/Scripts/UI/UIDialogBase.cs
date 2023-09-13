@@ -12,7 +12,7 @@ namespace QuestBase.UI
 
         public UIDialogBase()
         {
-            this.IsClosed = false;
+            this.IsClosed = true;
             var prefab = GetWindowPrefab();
             this.viewObj = GameObject.Instantiate(prefab, UIWindowSettings.Instance.DialogCanvas.transform);
         }

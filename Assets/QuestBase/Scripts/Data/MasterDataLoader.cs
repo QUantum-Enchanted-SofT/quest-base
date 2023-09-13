@@ -10,7 +10,7 @@ namespace QuestBase.Data
     {
         private static string GetFilePath<T>()
         {
-            if (MasterDataDefinitions.PlayerDataPaths.TryGetValue(typeof(T), out var path))
+            if (MasterDataDefinitions.MasterDataPaths.TryGetValue(typeof(T), out var path))
             {
                 return path;
             }
@@ -19,13 +19,19 @@ namespace QuestBase.Data
             throw new NotImplementedException();
         }
 
-        public static T[] Load<T>()
+        public static T LoadAsset<T>() where T : ScriptableObject
+        {
+            var resource = Resources.Load(GetFilePath<T>());
+
+            return resource as T;
+        }
+
+        public static T[] LoadCsv<T>()
         {
             var csv = Resources.Load<TextAsset>(GetFilePath<T>());
-            var data = CsvUtility.FromCsv<T>(csv.text);
+            var csvData = CsvUtility.FromCsv<T>(csv.text);
             Resources.UnloadAsset(csv);
-
-            return data;
+            return csvData;
         }
     }
 }

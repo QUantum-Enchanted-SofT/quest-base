@@ -8,11 +8,11 @@ using QuestBase;
 
 namespace QuestTemplate.SceneManagement.Main
 {
-    public class SGGSceneManagerMain : SGGSceneManager
+    public class SceneManagerMain : SceneManager
     {
         private SceneBase currentScene = null;
 
-        protected SGGSceneManagerMain(SceneType firstScene) : base(firstScene)
+        protected SceneManagerMain(SceneType firstScene) : base(firstScene)
         {
         }
 
@@ -20,7 +20,7 @@ namespace QuestTemplate.SceneManagement.Main
         {
             if (Instance == null)
             {
-                Instance = new SGGSceneManagerMain(firstScene);
+                Instance = new SceneManagerMain(firstScene);
             }
         }
 

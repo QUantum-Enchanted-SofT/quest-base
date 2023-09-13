@@ -41,7 +41,10 @@ namespace QuestBase
         {
             if (labeledCoroutines.TryGetValue(label, out var prevCoroutine))
             {
-                mb.StopCoroutine(prevCoroutine);
+                if (prevCoroutine != null)
+                {
+                    mb.StopCoroutine(prevCoroutine);
+                }
             }
 
             var coroutine = StartCoroutine(routine);

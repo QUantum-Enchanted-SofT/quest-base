@@ -9,6 +9,7 @@ namespace QuestBase.UI
     public class UIText : MonoBehaviour
     {
         private TextMeshProUGUI tmpro;
+        public TextMeshProUGUI TMPText => tmpro;
 
         private void Awake()
         {

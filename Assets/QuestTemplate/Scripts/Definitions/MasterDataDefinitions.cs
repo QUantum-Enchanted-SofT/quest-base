@@ -9,7 +9,7 @@ namespace QuestBase.Data
     {
         private const string baseDir = "MasterData/";
 
-        public static Dictionary<Type, string> PlayerDataPaths = new Dictionary<Type, string>
+        public static Dictionary<Type, string> MasterDataPaths = new Dictionary<Type, string>
         {
             {typeof(SEVolumeData), baseDir + "SEVolume"},
         };
