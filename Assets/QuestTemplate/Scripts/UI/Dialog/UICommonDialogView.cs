@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SGG.UI
+namespace QuestTemplate.UI
 {
     public class UICommonDialogView : MonoBehaviour
     {

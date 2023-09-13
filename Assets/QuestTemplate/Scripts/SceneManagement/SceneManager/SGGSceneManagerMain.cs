@@ -1,4 +1,4 @@
-﻿using SGG.Data.InGame;
+﻿using QuestTemplate.Data.InGame;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using QuestBase.SceneManagement;
 using QuestBase;
 
-namespace SGG.SceneManagement.Main
+namespace QuestTemplate.SceneManagement.Main
 {
     public class SGGSceneManagerMain : SGGSceneManager
     {

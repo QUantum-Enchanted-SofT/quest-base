@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SGG.UI
+namespace QuestTemplate.UI
 {
     public class UICommonDialog : UIDialogBase
     {

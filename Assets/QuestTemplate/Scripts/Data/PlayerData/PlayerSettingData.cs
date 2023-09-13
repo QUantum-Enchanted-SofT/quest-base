@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-namespace SGG.Data.Player
+namespace QuestTemplate.Data.Player
 {
     [System.Serializable]
     public class PlayerSettingData

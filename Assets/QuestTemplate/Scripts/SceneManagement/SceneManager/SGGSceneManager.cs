@@ -1,9 +1,9 @@
-﻿using SGG.Data.InGame;
+﻿using QuestTemplate.Data.InGame;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SGG.SceneManagement
+namespace QuestTemplate.SceneManagement
 {
     public abstract class SGGSceneManager
     {

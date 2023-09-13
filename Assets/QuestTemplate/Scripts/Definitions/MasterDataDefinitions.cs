@@ -1,4 +1,4 @@
-﻿using SGG.Data.Master;
+﻿using QuestTemplate.Data.Master;
 using System;
 using System.Collections.Generic;
 using UnityEngine;

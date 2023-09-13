@@ -2,10 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using SGG.SceneManagement;
+using QuestTemplate.SceneManagement;
 using QuestBase.SceneManagement;
 
-namespace SGG.Data.InGame
+namespace QuestTemplate.Data.InGame
 {
     public class MenuScene : SceneBase
     {

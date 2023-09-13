@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using QuestBase.SceneManagement;
 
-namespace SGG.Data.InGame
+namespace QuestTemplate.Data.InGame
 {
     public class InGameInitData : SceneInitData
     {

@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SGG.Data.InGame
+namespace QuestTemplate.Data.InGame
 {
     public class InGameScene : SceneBase
     {
