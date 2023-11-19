@@ -30,6 +30,11 @@ namespace QuestBase.Data
             keyValuePairs = TableDataList.ToDictionary(t => t.Key, t => t.Value);
         }
 
+        public virtual bool TryGetValue(TKey key, out TValue value)
+        {
+            return keyValuePairs.TryGetValue(key, out value);
+        }
+
         public virtual TValue GetValue(TKey key)
         {
             if (keyValuePairs.TryGetValue(key, out var val))

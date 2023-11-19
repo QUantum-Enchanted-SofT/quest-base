@@ -11,7 +11,6 @@ namespace QuestBase.Data
 
         public static Dictionary<Type, string> MasterDataPaths = new Dictionary<Type, string>
         {
-            {typeof(SEVolumeData), baseDir + "SEVolume"},
         };
     }
 }
