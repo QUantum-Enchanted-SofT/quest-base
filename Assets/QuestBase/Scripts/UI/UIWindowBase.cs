@@ -6,9 +6,19 @@ using UnityEngine;
 
 namespace QuestBase.UI
 {
+    public enum UIWindowState
+    {
+        Opening,
+        Opened,
+        Closing,
+        Closed,
+    }
+
     public abstract class UIWindowBase
     {
-        public abstract bool IsClosed { get; protected set; }
+        public abstract UIWindowState WindowState { get; protected set; }
+        public bool IsClosed => WindowState == UIWindowState.Closed;
+        public bool IsOpened => WindowState == UIWindowState.Opened;
 
         public abstract void Open();
         public abstract void Close();

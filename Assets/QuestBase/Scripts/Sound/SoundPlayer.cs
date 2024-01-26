@@ -76,6 +76,20 @@ namespace QuestBase.Sound
             }
         }
 
+        public void PlaySE3d(SeType seType, AudioSource audioSource)
+        {
+            var clip = this.seClips[seType];
+
+            if (this.seDataTable.TryGetValue(seType, out var seData))
+            {
+                audioSource.PlayOneShot(clip, seData.Volume);
+            }
+            else
+            {
+                audioSource.PlayOneShot(clip);
+            }
+        }
+
         /// <summary>
         /// マスターボリュームを設定する
         /// </summary>

@@ -8,11 +8,11 @@ namespace QuestBase.UI
     public abstract class UIDialogBase : UIWindowBase
     {
         protected GameObject viewObj = null;
-        public override bool IsClosed { get; protected set; } = false;
+        public override UIWindowState WindowState { get; protected set; } = UIWindowState.Closed;
 
         public UIDialogBase()
         {
-            this.IsClosed = true;
+            this.WindowState = UIWindowState.Closed;
             var prefab = GetWindowPrefab();
             this.viewObj = GameObject.Instantiate(prefab, UIWindowSettings.Instance.DialogCanvas.transform);
         }
@@ -24,9 +24,13 @@ namespace QuestBase.UI
 
         private IEnumerator OpenCoroutine()
         {
+            this.WindowState = UIWindowState.Opening;
+
             LoadingManager.Instance.StartLoading(LoadingType.Default);
             yield return OnBeforeOpen();
             LoadingManager.Instance.EndLoading();
+
+            this.WindowState = UIWindowState.Opened;
 
             yield return OnAfterOpen();
         }
@@ -38,12 +42,15 @@ namespace QuestBase.UI
 
         private IEnumerator CloseCoroutine()
         {
+            this.WindowState = UIWindowState.Closing;
+
             GameObject.Destroy(viewObj);
             while (viewObj)
             {
                 yield return null;
             }
-            this.IsClosed = true;
+
+            this.WindowState = UIWindowState.Closed;
         }
 
         protected abstract IEnumerator OnBeforeOpen();

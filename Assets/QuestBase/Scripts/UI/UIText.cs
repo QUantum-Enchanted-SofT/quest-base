@@ -8,12 +8,16 @@ namespace QuestBase.UI
     [RequireComponent(typeof(TextMeshProUGUI))]
     public class UIText : MonoBehaviour
     {
+        [SerializeField]
         private TextMeshProUGUI tmpro;
         public TextMeshProUGUI TMPText => tmpro;
 
         private void Awake()
         {
-            tmpro = GetComponent<TextMeshProUGUI>();
+            if (!tmpro)
+            {
+                tmpro = GetComponent<TextMeshProUGUI>();
+            }
         }
 
         /// <summary>
