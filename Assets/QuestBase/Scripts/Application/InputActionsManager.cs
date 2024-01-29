@@ -33,6 +33,8 @@ namespace QuestBase
         public InputDeviceType InputDevice { get; private set; }
         public UnityAction OnInputDeviceChanged = null;
 
+        public Vector2 MousePosition { get; private set; }
+
         protected override void Awake()
         {
             base.Awake();
@@ -49,6 +51,15 @@ namespace QuestBase
             this.InputActions.Common.AnyMouseInput.performed += OnAnyMouseInput;
             this.InputActions.Common.AnyKeyboardInput.performed += OnAnyKeyboardInput;
             this.InputActions.Common.AnyGamepadInput.performed += OnAnyGamepadInput;
+            this.InputActions.Common.MousePosition.performed += OnInputMousePosition;
+        }
+
+        private void OnDestroy()
+        {
+            this.InputActions.Common.AnyMouseInput.performed -= OnAnyMouseInput;
+            this.InputActions.Common.AnyKeyboardInput.performed -= OnAnyKeyboardInput;
+            this.InputActions.Common.AnyGamepadInput.performed -= OnAnyGamepadInput;
+            this.InputActions.Common.MousePosition.performed -= OnInputMousePosition;
         }
 
         public void LockAll()
@@ -167,6 +178,11 @@ namespace QuestBase
                 this.InputDevice = InputDeviceType.Gamepad;
                 this.OnInputDeviceChanged?.Invoke();
             }
+        }
+
+        private void OnInputMousePosition(InputAction.CallbackContext context)
+        {
+            this.MousePosition = context.ReadValue<Vector2>();
         }
 
         public void DestroyDefaultInputModule()

@@ -1,5 +1,5 @@
 {
-    "name": "SGG",
+    "name": "Main",
     "maps": [
         {
             "name": "InGame",
@@ -936,6 +936,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "MousePosition",
+                    "type": "Value",
+                    "id": "53830280-3617-4d07-aa55-d9f2570ef333",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -1123,6 +1132,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "AnyGamepadInput",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "86c36799-3e1a-4be5-817e-8b2bf5f333ee",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "MousePosition",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
