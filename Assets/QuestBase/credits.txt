@@ -9,3 +9,6 @@ QuestBase requires third party packages below.
 
 [github]
 * ImtStateMachine https://github.com/Sinoa/IceMilkTea/blob/develop/Packages/IceMilkTea/Runtime/Core/StateMachine.cs
+
+[Fonts]
+* Noto Sans JP https://fonts.google.com/noto/specimen/Noto+Sans+JP
