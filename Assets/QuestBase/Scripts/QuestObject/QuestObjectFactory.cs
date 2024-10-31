@@ -30,7 +30,7 @@ namespace QuestBase
         /// <returns></returns>
         public QuestObjectViewBase CreateQuestObjectView(
             QuestObjectViewType viewType,
-            QuestObjectBase logic,
+            QuestObjectLogicBase logic,
             Vector3 position = default(Vector3),
             Quaternion rotation = default(Quaternion),
             Transform parent = null,

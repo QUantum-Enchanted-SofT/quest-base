@@ -1,16 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace QuestBase.QuestObjectLogic
 {
-    public enum CommonViewEventType
-    {
-        Transform,
-    }
-
     public class CollisionParameter
     {
         public Collision Collision3D = null;
@@ -45,13 +39,7 @@ namespace QuestBase.QuestObjectLogic
         public Vector3 Normal;
     }
 
-    public class QuestObjectViewEvent<T> where T : Enum
-    {
-        public T EventType;
-        public object[] Params;
-    }
-
-    public abstract class QuestObjectBase : IDisposable
+    public abstract class QuestObjectLogicBase : IDisposable
     {
         protected List<IQuestObjectView> views = new List<IQuestObjectView>();
 

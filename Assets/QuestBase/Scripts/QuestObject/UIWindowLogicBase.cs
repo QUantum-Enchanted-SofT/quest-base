@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Dropin
 {
-    public abstract class UIWindowLogicBase : QuestObjectBase
+    public abstract class UIWindowLogicBase : QuestObjectLogicBase
     {
         public interface IWindowBaseViewEvent
         {

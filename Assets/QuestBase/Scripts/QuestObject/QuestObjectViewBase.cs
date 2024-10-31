@@ -12,13 +12,13 @@ namespace QuestBase.QuestObjectView
         protected static IReadOnlyList<QuestObjectViewBase> AllViews => allViews;
 
         public QuestObjectViewType ViewType { get; private set; }
-        protected QuestObjectBase questObject;
+        protected QuestObjectLogicBase logicBase;
 
-        public void Init(QuestObjectViewType viewType, QuestObjectBase presenter)
+        public void Init(QuestObjectViewType viewType, QuestObjectLogicBase presenter)
         {
             this.ViewType = viewType;
-            this.questObject = presenter;
-            this.questObject.RegisterView(this);
+            this.logicBase = presenter;
+            this.logicBase.RegisterView(this);
             allViews.Add(this);
 
             OnInit();
@@ -66,7 +66,7 @@ namespace QuestBase.QuestObjectView
 
         protected void ReturnView()
         {
-            this.questObject.UnregisterView(this);
+            this.logicBase.UnregisterView(this);
             allViews.Remove(this);
             QuestObjectFactory.Instance.ReturnCache(this);
         }
@@ -74,7 +74,7 @@ namespace QuestBase.QuestObjectView
         private void OnDestroy()
         {
             OnDispose();
-            this.questObject.UnregisterView(this);
+            this.logicBase.UnregisterView(this);
             allViews.Remove(this);
         }
 
@@ -84,32 +84,32 @@ namespace QuestBase.QuestObjectView
 
         public void OnCollisionEnter(Collision collision)
         {
-            this.questObject.OnCollisionEnter(new CollisionParameter(collision));
+            this.logicBase.OnCollisionEnter(new CollisionParameter(collision));
         }
 
         public void OnCollisionStay(Collision collision)
         {
-            this.questObject.OnCollisionStay(new CollisionParameter(collision));
+            this.logicBase.OnCollisionStay(new CollisionParameter(collision));
         }
 
         public void OnCollisionExit(Collision collision)
         {
-            this.questObject.OnCollisionExit(new CollisionParameter(collision));
+            this.logicBase.OnCollisionExit(new CollisionParameter(collision));
         }
 
         public void OnCollisionEnter2D(Collision2D collision)
         {
-            this.questObject.OnCollisionEnter(new CollisionParameter(collision));
+            this.logicBase.OnCollisionEnter(new CollisionParameter(collision));
         }
 
         public void OnCollisionStay2D(Collision2D collision)
         {
-            this.questObject.OnCollisionStay(new CollisionParameter(collision));
+            this.logicBase.OnCollisionStay(new CollisionParameter(collision));
         }
 
         public void OnCollisionExit2D(Collision2D collision)
         {
-            this.questObject.OnCollisionExit(new CollisionParameter(collision));
+            this.logicBase.OnCollisionExit(new CollisionParameter(collision));
         }
     }
 }
