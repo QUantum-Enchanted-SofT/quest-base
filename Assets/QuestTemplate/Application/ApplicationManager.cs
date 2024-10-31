@@ -6,6 +6,7 @@ using QuestBase;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using QuestBase.Sound;
 
 namespace QuestTemplate
 {
@@ -39,24 +40,35 @@ namespace QuestTemplate
 
             var masterDataManager = new MasterDataManager();
             masterDataManager.Init();
+            masterDataManager.LoadAsset<QuestObjectPrefabTable>();
+
+            var questObjectFactory = new QuestObjectFactory();
 
             SceneManagerMain.Create(SceneManager.SceneType.Menu);
             // Cursor.lockState = CursorLockMode.Confined;
-            Instantiate(inputActionsManagerPrefab);
 
             ApplySettings();
 
-            var initData = new MenuInitData
-            {
-            };
-            SceneManager.Instance.LoadMenu(initData);
-
             // Cursor.SetCursor(this.cursorTexture, this.cursorHotSpot, CursorMode.ForceSoftware);
+        }
+
+        private void Start()
+        {
+            ApplySettings();
+            LoadFirstScene();
         }
 
         public void ApplySettings()
         {
             var playerData = PlayerDataManager.Instance.GetData<PlayerSettingData>();
+            SoundPlayer.Instance.SetMasterVolume(playerData.MasterVolume);
+            SoundPlayer.Instance.SetBgmVolume(playerData.BgmVolume);
+            SoundPlayer.Instance.SetSeVolume(playerData.SeVolume);
+        }
+
+        protected virtual void LoadFirstScene()
+        {
+            SceneManager.Instance.LoadMenu(new MenuInitData());
         }
     }
 }

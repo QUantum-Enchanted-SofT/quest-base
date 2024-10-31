@@ -47,10 +47,6 @@ namespace QuestTemplate.SceneManagement.Main
                 this.currentScene.SetCache(cache);
             }
 
-            // dispose before scene
-            yield return currentScene?.OnBeforeUnloadScene();
-            this.currentScene?.Dispose();
-
             // init next scene
             this.currentScene = new T();
 

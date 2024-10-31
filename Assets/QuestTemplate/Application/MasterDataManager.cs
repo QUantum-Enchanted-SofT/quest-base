@@ -27,13 +27,13 @@ namespace QuestTemplate.Data.Master
             this.dataDict.Clear();
         }
 
-        private void LoadAsset<T>() where T : ScriptableObject
+        public void LoadAsset<T>() where T : ScriptableObject
         {
             var data = MasterDataLoader.LoadAsset<T>();
             this.dataDict.Add(typeof(T), data);
         }
 
-        private void LoadCsv<T>()
+        public void LoadCsv<T>()
         {
             var data = MasterDataLoader.LoadCsv<T>();
             this.dataDict.Add(typeof(T[]), data);
