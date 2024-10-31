@@ -7,6 +7,8 @@ namespace QuestBase.SceneManagement
 {
     public abstract class SceneBase : IDisposable
     {
+        private Dictionary<string, object> sceneCache = new Dictionary<string, object>();
+
         protected SceneBase()
         {
 
@@ -39,5 +41,25 @@ namespace QuestBase.SceneManagement
         /// シングルトンが破棄されるタイミング
         /// </summary>
         protected abstract void OnDispose();
+
+        public Dictionary<string, object> GetCache()
+        {
+            return this.sceneCache;
+        }
+
+        public void SetCache(string key, object value)
+        {
+            this.sceneCache[key] = value;
+        }
+
+        public void SetCache(Dictionary<string, object> cache)
+        {
+            this.sceneCache = cache;
+        }
+
+        public void ClearCache()
+        {
+            this.sceneCache.Clear();
+        }
     }
 }

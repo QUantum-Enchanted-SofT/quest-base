@@ -5,12 +5,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using QuestBase.SceneManagement;
 using QuestBase;
+using System;
 
 namespace QuestTemplate.SceneManagement.Main
 {
     public class SceneManagerMain : SceneManager
     {
         private SceneBase currentScene = null;
+        private Dictionary<Type, Dictionary<string, object>> sceneCache = new Dictionary<Type, Dictionary<string, object>>();
 
         protected SceneManagerMain(SceneType firstScene) : base(firstScene)
         {
@@ -29,6 +31,21 @@ namespace QuestTemplate.SceneManagement.Main
             // transition and loading
             yield return TransitionManager.Instance.TransitionOut();
             LoadingManager.Instance.StartLoading();
+
+            // dispose before scene
+            if (this.currentScene != null)
+            {
+                yield return this.currentScene.OnBeforeUnloadScene();
+                this.sceneCache[currentScene.GetType()] = this.currentScene.GetCache();
+                this.currentScene.Dispose();
+            }
+
+            // init next scene
+            this.currentScene = new T();
+            if (this.sceneCache.TryGetValue(typeof(T), out var cache))
+            {
+                this.currentScene.SetCache(cache);
+            }
 
             // dispose before scene
             yield return currentScene?.OnBeforeUnloadScene();
