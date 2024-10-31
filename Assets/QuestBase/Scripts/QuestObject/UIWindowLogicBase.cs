@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Dropin
+namespace QuestTemplate
 {
     public abstract class UIWindowLogicBase : QuestObjectLogicBase
     {

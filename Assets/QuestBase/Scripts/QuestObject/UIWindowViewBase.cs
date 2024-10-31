@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
 
-namespace Dropin
+namespace QuestTemplate
 {
     [RequireComponent(typeof(CanvasGroup))]
     public class UIWindowViewBase : QuestObjectViewBase, UIWindowLogicBase.IWindowBaseViewEvent

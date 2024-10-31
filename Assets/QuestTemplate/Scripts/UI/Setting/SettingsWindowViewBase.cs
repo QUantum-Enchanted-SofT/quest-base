@@ -1,6 +1,4 @@
-﻿using QuestTemplate.Data.Player;
-using QuestBase.UI;
-using System.Collections;
+﻿using QuestBase.QuestObjectView;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -8,48 +6,16 @@ using UnityEngine.Events;
 
 namespace QuestTemplate.UI
 {
-    public abstract class UISettingsWindowBase : UIModalWindowBase
+    public abstract class SettingsWindowViewBase : QuestObjectViewBase
     {
+        [SerializeField]
         protected UISettingsWindowView view = null;
 
-        protected bool isDirty = false;
-
-        private IReadOnlyList<GameObject> createdCells => this.view.CreatedCells;
-
-        public override void Dispose()
+        protected void SetDirty()
         {
-        }
-
-        protected override void OnViewCreated()
-        {
-            this.view = this.viewObj.GetComponent<UISettingsWindowView>();
-
-            this.view.SaveButton.onClick.AddListener(OnClickSaveButton);
-            this.view.SaveButton.interactable = false;
-        }
-
-        protected override IEnumerator OnBeforeOpen()
-        {
-            yield break;
-        }
-
-        protected void DestroyAllSettingCells() => this.view.DestroyAllSettingCells();
-
-        protected abstract void OnClickStartButton();
-
-        protected virtual void OnClickSaveButton()
-        {
-            PlayerDataManager.Instance.Save<PlayerSettingData>();
-            ClearDirty();
+            this.view.SetDirty();
             ApplicationManager.Instance.ApplySettings();
         }
-
-        protected virtual void OnClickQuitButton()
-        {
-            Application.Quit();
-        }
-
-        protected void SetDirty() => this.view.SetDirty();
 
         protected void ClearDirty() => this.view.ClearDirty();
 
@@ -79,12 +45,5 @@ namespace QuestTemplate.UI
 
         protected void CreateSettingCellSlider(string label, float defaultFloat, UnityAction<float> onValueChanged)
             => this.view.CreateSettingCellSlider(label, defaultFloat, onValueChanged);
-
-        // private void CreateInputFieldAndButtonSettingCell(string label, string defaultInputText, string defaultButtonText, UnityAction<string> onClick)
-        // {
-        //     var inputFieldAndButton = GameObject.Instantiate(this.settingInputFieldAndButtonPrefab, this.view.Content);
-        //     inputFieldAndButton.Init(label, defaultInputText, defaultButtonText, onClick);
-        //     this.createdCells.Add(inputFieldAndButton.gameObject);
-        // }
     }
 }
